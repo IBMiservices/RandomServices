@@ -4,12 +4,15 @@
     /*     >>PARM<<  SRVPGM(&LI/&SM);                                */
     /*     >>PARM<<  MODULE(&LI/RANDINTGEN);                         */
     /*     >>PARM<<  TEXT('Random Services Programm');               */
+    /*     >>PARM<<  BNDDIR(RANDOMBND);                              */
     /*     >>PARM<<  OPTION(*DUPPROC);                               */
     /*     >>PARM<<  TGTRLS(*CURRENT);                               */
     /*     >>PARM<<  DETAIL(*FULL);                                  */
     /*     >>PARM<<  ALWLIBUPD(*YES);                                */
     /*   >>END-IMPORTANT<<                                           */
+    /*   >>CMD<<  RMVBNDDIRE BNDDIR(RANDOMBND) OBJ((&LI/&SM));       */
     /*   >>EXECUTE<<                                                 */
+    /*   >>CMD<<  ADDBNDDIRE BNDDIR(RANDOMBND) OBJ((&LI/&SM));       */
     /* >>END-PRE-COMPILER<<                                          */
              STRPGMEXP  PGMLVL(*CURRENT) LVLCHK(*YES) SIGNATURE('v0.1.0')
                 EXPORT     SYMBOL(IntegerRandomGenerator)

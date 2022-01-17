@@ -16,7 +16,7 @@
 //     >>EXECUTE<<                                                     *
 //   >>END-PRE-COMPILER<<                                              *
 //=====================================================================*
-ctl-opt nomain option(*srcstmt) Bnddir('RANDOMSRV');
+ctl-opt nomain option(*srcstmt) Bnddir('RANDOMBND');
 dcl-f QSYSPRT printer(80) usropn oflind(*in70);
 
 //iRPGUnit Test Suite
@@ -130,32 +130,22 @@ dcl-proc testRandomNormalintegergeneration_1 export;
 
   Dcl-s iniLimit Int(20) Inz(112);
 
-  Dcl-s VrfGeneratedRandomInteger Int(20) Inz(112);
+  Dcl-s VrfRandomIntegerGenerated Int(20) Inz(112);
   Dcl-s refLimitInf Int(20) Inz(0);
   Dcl-s refLimitSup Int(20) Inz(112);
 
   print('Executing:       * testRandomNormalintegergeneration_1()');
 
-  VrfGeneratedRandomInteger=IntegerRandomGenerator(iniLimit);
+  VrfRandomIntegerGenerated=IntegerRandomGenerator(iniLimit);
 
 // Place your assertions here.
+  print('Integer generated: ' + %Char(VrfRandomIntegerGenerated));
+
   assert(VrfRandomIntegerGenerated>refLimitInf:'Generated integer '
                                        + %Char(VrfRandomIntegerGenerated) +
                                                         ' is smaller than Inferior limit ' + %Char(refLimitInf));
 
   assert(VrfRandomIntegerGenerated<refLimitSup:'Generated integer '
                                          + %Char(VrfRandomIntegerGenerated) +
-                                               ' smaller than bigger than superior limit ' + %Char(refLimitSup));
-end-proc;
-
-// ============================================================
-//  RPGUnit test case.
-// ============================================================
-dcl-proc testWhatever_2 export;
-  dcl-pi *n end-pi;
-
-  print('Executing:       * testWhatever_2()');
-
-// Place your assertions here.
-
+                                               ' is bigger than superior limit ' + %Char(refLimitSup));
 end-proc;
