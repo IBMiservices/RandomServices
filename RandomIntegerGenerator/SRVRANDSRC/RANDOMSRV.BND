@@ -1,0 +1,16 @@
+    /* >>PRE-COMPILER<<                                              */
+    /*   >>CRTCMD<<  CRTSRVPGM SRCFILE(&SL/&SF) SRCMBR(&SM);         */
+    /*   >>IMPORTANT<<                                               */
+    /*     >>PARM<<  SRVPGM(&LI/&SM);                                */
+    /*     >>PARM<<  MODULE(&LI/RANDINTGEN);                         */
+    /*     >>PARM<<  TEXT('Random Services Programm');               */
+    /*     >>PARM<<  OPTION(*DUPPROC);                               */
+    /*     >>PARM<<  TGTRLS(*CURRENT);                               */
+    /*     >>PARM<<  DETAIL(*FULL);                                  */
+    /*     >>PARM<<  ALWLIBUPD(*YES);                                */
+    /*   >>END-IMPORTANT<<                                           */
+    /*   >>EXECUTE<<                                                 */
+    /* >>END-PRE-COMPILER<<                                          */
+             STRPGMEXP  PGMLVL(*CURRENT) LVLCHK(*YES) SIGNATURE('v0.1.0')
+                EXPORT     SYMBOL(IntegerRandomGenerator)
+             ENDPGMEXP
